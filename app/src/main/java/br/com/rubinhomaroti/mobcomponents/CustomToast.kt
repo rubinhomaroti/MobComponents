@@ -2,6 +2,7 @@ package  br.com.rubinhomaroti.mobcomponents
 
 import android.app.Activity
 import android.graphics.drawable.Drawable
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -16,7 +17,8 @@ object CustomToast {
         message: String,
         duration: Int = Snackbar.LENGTH_SHORT
     ) {
-        val toastLayout: View = activity.findViewById(android.R.id.content)
+        val inflater = LayoutInflater.from(activity)
+        val toastLayout: View = inflater.inflate(R.layout.custom_toast, null)
 
         val snackBar = Snackbar.make(toastLayout, message, duration)
         snackBar.view.background = backgroundToast
