@@ -16,8 +16,9 @@ object CustomToast {
         message: String,
         duration: Int = Snackbar.LENGTH_SHORT
     ) {
-        val toastLayout: View = activity.layoutInflater.inflate(R.layout.custom_toast, null)
-        val snackBar = Snackbar.make(activity, toastLayout, message, duration)
+        val toastLayout: View = activity.findViewById(android.R.id.content)
+
+        val snackBar = Snackbar.make(toastLayout, message, duration)
         snackBar.view.background = backgroundToast
 
         toastLayout.findViewById<TextView>(R.id.tvMessageToast).text = message
